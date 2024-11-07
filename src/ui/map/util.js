@@ -165,7 +165,7 @@ const addMarkers = (geojson, context, writable) => {
     if (activeStyle === 'Dark')
       d3.selectAll('.mapboxgl-marker svg circle').style(
         'fill',
-        '#555',
+        '#f00',
         'important'
       );
 

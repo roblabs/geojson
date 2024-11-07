@@ -9,6 +9,9 @@ require('codemirror/addon/fold/brace-fold');
 require('codemirror/addon/edit/matchbrackets');
 require('codemirror/mode/javascript/javascript');
 
+const turf = require("@turf/truncate")
+const truncate = require('@turf/truncate').default;
+
 const validate = require('../lib/validate');
 const zoomextent = require('../lib/zoomextent');
 const flash = require('../ui/flash');
@@ -92,6 +95,43 @@ module.exports = function (context) {
       }, 3000);
     });
 
+    const precision = buttonContainer
+      .append('button')
+      .attr('id', 'precision-button')
+      .attr('title', 'GeoJSON Precision');
+
+    const precisionIcon = button
+      .append('span')
+      .attr('class', 'fa-solid fa-6 text-gray-500');
+
+    precision.on('click', () => {
+
+      const geojson = context.data.get('map')
+
+      const options = { precision: 7, coordinates: 3 };
+      const truncated = truncate(geojson, options);
+      console.log(99139, truncated);
+      // editor.setValue(truncated);
+
+      const formattedJ2 = prettier.format(JSON.stringify(truncated, null, 2), {
+        parser: "json",
+        plugins: prettierPlugins,
+      })
+      editor.setValue(formattedJ2);
+
+      // set the button to a green checkmark
+      precisionIcon
+        .classed('fa-6', false)
+        .attr('class', 'fa-solid fa-check text-green-600');
+      // show tooltip
+      tooltip.classed('group-hover:opacity-100', true);
+      setTimeout(() => {
+        buttonIcon.attr('class', 'fa-solid fa-6 text-gray-500');
+        // hide tooltip
+        tooltip.classed('group-hover:opacity-100', false);
+      }, 3000);
+    });
+
     const copyButtonEl = document.querySelector('#copy-button');
     const tooltipEl = document.querySelector('#tooltip');
 
@@ -102,6 +142,20 @@ module.exports = function (context) {
           name: 'offset',
           options: {
             offset: [0, 8]
+          }
+        }
+      ]
+    });
+
+    const precisionButtonEl = document.querySelector('#precision-button');
+
+    createPopper(precisionButtonEl, tooltipEl, {
+      placement: 'right',
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 24]
           }
         }
       ]

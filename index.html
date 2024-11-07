@@ -89,8 +89,6 @@
     console.log(9986, sss)
 
     const formattedJ = prettier.format(sss, {
-      // const formatted = prettier.format(jjj, {
-      // parser: "json",
       parser: "json-stringify",
       plugins: prettierPlugins,
     });  console.log(9995)
@@ -98,7 +96,6 @@
 
     
     const formatted = prettier.format("console.log( 'ok'    )", {
-      // const formatted = prettier.format(jjj, {
       parser: "babel",
       plugins: prettierPlugins,
     });

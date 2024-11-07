@@ -131,6 +131,28 @@ module.exports = function (context) {
         geometry.type === 'Polygon' ||
         geometry.type === 'MultiPolygon'
       ) {
+        if (!('title' in properties)) {
+          const tr = sel.select('table.marker-properties tbody').insert('tr');
+          tr.append('th')
+            .append('input')
+            .attr('type', 'text')
+            .attr('value', 'title');
+          tr.append('td')
+            .append('input')
+            .attr('type', 'text')
+            .attr('value', '');
+        }
+        if (!('description' in properties)) {
+          const tr = sel.select('table.marker-properties tbody').insert('tr');
+          tr.append('th')
+            .append('input')
+            .attr('type', 'text')
+            .attr('value', 'description');
+          tr.append('td')
+            .append('input')
+            .attr('type', 'text')
+            .attr('value', '');
+        }
         if (!('stroke' in properties)) {
           const tr = sel.select('table.marker-properties tbody').insert('tr');
           tr.append('th')
@@ -140,7 +162,7 @@ module.exports = function (context) {
           tr.append('td')
             .append('input')
             .attr('type', 'color')
-            .attr('value', '#555555');
+            .attr('value', '#ff0000');
         }
         if (!('stroke-width' in properties)) {
           const tr = sel.select('table.marker-properties tbody').insert('tr');
@@ -191,7 +213,7 @@ module.exports = function (context) {
           tr.append('td')
             .append('input')
             .attr('type', 'color')
-            .attr('value', '#555555');
+            .attr('value', '#ff0000');
         }
         if (!('fill-opacity' in properties)) {
           const tr = sel.select('table.marker-properties tbody').insert('tr');
