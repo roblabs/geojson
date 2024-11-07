@@ -55,7 +55,7 @@ export default {
           dest: './dist'
         },
         {
-          src: 'img',
+          src: './img',
           dest: './'
         },
         {
