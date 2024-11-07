@@ -62,9 +62,6 @@
       ;
   ">
   <style>
-    /*
-   * http://seclab.stanford.edu/websec/framebusting/framebust.pdf
-   */
     body {
       display: none;
     }
@@ -73,36 +70,24 @@
 
 <body id="geojsonio-body" class="h-full">
 
-  <!-- <script src="https://unpkg.com/prettier@3.3.3/standalone.js"></script> -->
-  <!-- <script src="https://unpkg.com/prettier@3.3.3/plugins/babel.js"></script> -->
-  <!-- https://stackoverflow.com/questions/72595478/how-to-run-prettier-in-browser-to-format-code-e-g-inside-reactjs-app -->
-
 <script src="https://unpkg.com/prettier@2.6.2/standalone.js"></script>
 <script src="https://unpkg.com/prettier@2.6.2/parser-babel.js"></script>
 
-  
   <script>
     // JS script, should be run after tags load
     jjj = { "type": "FeatureCollection", "features": [{ "type": "Feature", "geometry": { "type": "Point", "coordinates": [-46.61590796981001, -62.0463856902296] }, "properties": {} }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-46.87363435925924, -60.536678238552824] }, "properties": {} }, { "type": "Feature", "geometry": { "type": "Point", "coordinates": [-140.79260911645454, 49.57704924654181] }, "properties": {} }] }
     sss = JSON.stringify(jjj)
-    // ppp = JSON.parse(jjj); console.log(9985, jjj)
     console.log(9986, sss)
 
     const formattedJ = prettier.format(sss, {
-      // const formatted = prettier.format(jjj, {
-      // parser: "json",
       parser: "json-stringify",
       plugins: prettierPlugins,
-    });  console.log(9995)
-    console.log(9993, formattedJ);
-
+    });
     
     const formatted = prettier.format("console.log( 'ok'    )", {
-      // const formatted = prettier.format(jjj, {
       parser: "babel",
       plugins: prettierPlugins,
     });
-    console.debug(99, formatted);
     </script>
 
 
