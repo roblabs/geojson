@@ -55,10 +55,6 @@ export default {
           dest: './dist'
         },
         {
-          src: './img',
-          dest: './'
-        },
-        {
           src: './index.html',
           dest: './'
         },
