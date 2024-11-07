@@ -55,14 +55,6 @@ export default {
           dest: './dist'
         },
         {
-          src: 'img',
-          dest: './img'
-        },
-        {
-          src: 'index.html',
-          dest: './index.html'
-        },
-        {
           src: 'img/marker-chars/*.svg',
           dest: './dist/icons'
         }
