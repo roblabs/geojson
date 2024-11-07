@@ -25,6 +25,7 @@
     "@turf/bbox": "^6.5.0",
     "@turf/circle": "^6.5.0",
     "@turf/length": "^6.5.0",
+    "@turf/truncate": "^6.5.0",
     "bowser": "^2.11.0",
     "buffer": "^6.0.3",
     "clone": "0.1.16",
@@ -69,13 +70,13 @@
     "eslint-plugin-prettier": "^4.2.1",
     "lint-staged": "^13.0.3",
     "live-server": "^1.2.2",
-    "prettier": "^2.7.1",
     "rollup": "^2.79.1",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-import-css": "^3.1.0",
     "rollup-plugin-polyfill-node": "^0.11.0",
     "tailwindcss": "^3.2.3",
-    "tape": "^5.6.1"
+    "tape": "^5.6.1",
+    "vite": "^5.4.5"
   },
   "scripts": {
     "lint": "eslint src/**/*.js",
@@ -86,6 +87,7 @@
     "start": "concurrently --kill-others --names live-server rollup \"live-server --ignore=\"$PWD/src/**,$PWD/dist/webfonts/**,$PWD/.git\"\" \"rollup -cw\" \"npx tailwindcss -i $PWD/src/css/tailwind_src.css -o $PWD/dist/css/tailwind_dist.css --watch\"",
     "build": "rimraf dist && npx tailwindcss -i ./src/css/tailwind_src.css -o ./dist/css/tailwind_dist.css && rollup -c",
     "serve": "live-server",
+    "dev": "vite --host",
     "deploy": "sh deploy.sh"
   },
   "lint-staged": {

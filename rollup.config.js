@@ -59,6 +59,10 @@ export default {
           dest: './'
         },
         {
+          src: './index.html',
+          dest: './'
+        },
+        {
           src: 'img/marker-chars/*.svg',
           dest: './dist/icons'
         }
