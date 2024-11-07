@@ -56,7 +56,7 @@ export default {
         },
         {
           src: 'img',
-          dest: './dist'
+          dest: './'
         },
         {
           src: 'img/marker-chars/*.svg',
